@@ -16,21 +16,15 @@ document.getElementById("start-btn").addEventListener("click", function() {
     function sportsDay(scores, callbacks) {
         var teams = Object.keys(scores);
         var teamScores = {};
-      
-        // Initialize all team scores to 0
         for (var i = 0; i < teams.length; i++) {
           teamScores[teams[i]] = 0;
         }
-      
-        // Run the sports day simulation
         for (var i = 0; i < 10; i++) {
           var teamIndex = Math.floor(Math.random() * teams.length);
           var team = teams[teamIndex];
           var score = Math.floor(Math.random() * 11);
       
           teamScores[team] += score;
-      
-          // Call each callback function with the updated score object
           for (var j = 0; j < callbacks.length; j++) {
             callbacks[j](teamScores);
           }
